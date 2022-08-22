@@ -8,9 +8,8 @@ export default async (req, res) => {
 
   const projects = [
     { title: 'projeto01', type: 'website', imgUrl: '/projetct01.png' },
-    { title: 'projeto02', type: 'website', imgUrl: '/hq1.jpg' },
-    { title: 'projeto03', type: 'website', imgUrl: '/img1.jpg' },
-    { title: 'projeto04', type: 'website', imgUrl: '/img1.jpg' }
+    { title: 'projeto02', type: 'website', imgUrl: '/projetct02.png' },
+    { title: 'projeto03', type: 'website', imgUrl: '/projetct03.png' }
   ];
   try{
     res.status(200).send(projects)

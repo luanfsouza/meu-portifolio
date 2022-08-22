@@ -10,7 +10,7 @@ function Experiencias() {
       <Head>
         <script src="https://unpkg.com/scrollreveal"></script>
       </Head>
-      <SectionTitle title="05 Anos" description="de experiência" />
+      <SectionTitle title="01 Ano" description="de experiência" />
 
       <section className='revelacao'>
         <ExperienciaItem

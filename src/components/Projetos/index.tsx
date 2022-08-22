@@ -17,25 +17,25 @@ interface ProjetosProps {
   projetos: IProjeto[];
 }
 
-function Projetos() {
-  const [data, setData] = useState(undefined);
-  const [dataQuery, setDataQuery] = useState();
-  useEffect(() => {
-    const fds = async () => {
-      const vai = await fetch('http://localhost:3000/api/project');
-      const json = await vai.json();
-      setData(json);
-    };
-    fds();
-  }, []);
+function Projetos({project}) {
+  // const [data, setData] = useState(undefined);
+  // const [dataQuery, setDataQuery] = useState();
+  // useEffect(() => {
+  //   const fds = async () => {
+  //     const vai = await fetch('http://localhost:3000/api/project');
+  //     const json = await vai.json();
+  //     setData(json);
+  //   };
+  //   fds();
+  // }, []);
   return (
     <Container>
       <SectionTitle title="Ultimos Projetos" />
 
       <section>
       </section>
-      {data &&
-        data.map(item => (
+      {project &&
+        project.map(item => (
           <ProjetoItem
             key={item.title}
             title={item.title}

@@ -9,30 +9,31 @@ import { ProjetoContainer } from '../../../styles/ProjetoStyles';
 import LoadingScreen from '../../../components/LoadingScreen';
 // import { setgid } from 'process';
 
-export default function Projeto() {
+export default function Projeto({post, dados}) {
   const router = useRouter();
   if (router.isFallback) {
     return <LoadingScreen />;
   }
-
-  const [data, setData] = useState(false);
+interface BannerProjetoProps {
+  title: string;
+  type: string;
+  imgUrl: string;
+}
+  const [data, setData] = useState<BannerProjetoProps>(dados);
   const [dataQuery, setDataQuery] = useState();
   useEffect(() => {
     const fds = async ()=> {
-       const vai = await  fetch('http://localhost:3000/api/project')
-       const json = await vai.json()
-       setData(json.filter(i=>i.title === router.query.slug)[0])
+    
+setData(dados.filter(i => i.title === router.query.slug)[0]);
+      //   const vercel = await fetch(
+      //     'https://meu-portifolio-theta.vercel.app/api/project'
+      //   );
+      //   const data = await vercel.json();
+      //   const dataUnica = data.filter(i=>i.title === post)[0]
     }
   fds()
-      
   }, []);
-  // const esperaca = async () => {
-  //   const fds = await fetch('http://localhost:3000/api/project');
-  //   const json = await fds.json();
-
-  // };c
-  // const fds = data.filter(i => i.title === router.query.slug);
-
+console.log(data)
   return (
     <ProjetoContainer>
       {/* <Head>
@@ -82,8 +83,13 @@ export async function getStaticPaths() {
 
 // `getStaticPaths` requires using `getStaticProps`
 export async function getStaticProps(context) {
+  const vercel = await fetch(
+    'https://meu-portifolio-theta.vercel.app/api/project'
+  );
+  const data = await vercel.json();
+  const dataUnica = data
   return {
-    // Passed to the page component as props
-    props: { post: {} },
-  }
+    props: {post: {}, dados: dataUnica },
+    revalidate: 60 * 60 * 24
+  };
 }

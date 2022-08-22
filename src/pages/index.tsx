@@ -26,7 +26,7 @@ interface HomeProps {
   projetos: IProjeto[];
 }
 
-export default function Home(props) {
+export default function Home({dados}) {
   // useEffect(() => {
   //   Aos.init({ duration: 1500 });
   // }, []);
@@ -54,7 +54,7 @@ export default function Home(props) {
       <main className="container">
         <HomeHero />
         <Experiencias />
-        <Projetos/>
+        <Projetos project={dados}/>
         <Conhecimentos />
         <FormContato />
       </main>
@@ -64,8 +64,11 @@ export default function Home(props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () =>
-  ({
-    props: { },
-    revalidate: 60 * 60 * 24
-  }); 
+export const getStaticProps: GetStaticProps = async () => {
+  const vercel = await fetch('https://meu-portifolio-theta.vercel.app/api/project')
+const data = await vercel.json()
+  return {
+    props: {dados: data},
+  revalidate: 60 * 60 * 24
+  }
+}

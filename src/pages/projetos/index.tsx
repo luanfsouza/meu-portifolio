@@ -19,17 +19,17 @@ interface ProjetoProps {
   projetos: IProjeto[];
 }
 
-export default function Projetos({date}) {
-  const [data, setData] = useState(undefined);
-  const [dataQuery, setDataQuery] = useState();
-  useEffect(() => {
-    const fds = async () => {
-      const vai = await fetch('http://localhost:3000/api/project');
-      const json = await vai.json();
-      setData(json);
-    };
-    fds();
-  }, []);
+export default function Projetos({dados}) {
+  // const [data, setData] = useState(undefined);
+  // const [dataQuery, setDataQuery] = useState();
+  // useEffect(() => {
+  //   const fds = async () => {
+  //     const vai = await fetch('http://localhost:3000/api/project');
+  //     const json = await vai.json();
+  //     setData(json);
+  //   };
+  //   fds();
+  // }, []);
 
   return (
     <ProjetosContainer>
@@ -51,8 +51,8 @@ export default function Projetos({date}) {
 
       <Header />
       <main className="container">
-        {data &&
-          data.map(item => (
+        {dados &&
+          dados.map(item => (
             <ProjetoItem
               key={item.title}
               title={item.title}
@@ -66,15 +66,16 @@ export default function Projetos({date}) {
     </ProjetosContainer>
   );
 }
-
-export const getStaticProps: GetStaticProps = async () => 
-// const response = await fetch('https://viacep.com.br/ws/01001000/json/');
-// const data = await response.json()
-
- ({
-props: {date: new Date().toString()},
-revalidate: 60 * 60 * 24
-}) 
+export const getStaticProps: GetStaticProps = async () => {
+  const vercel = await fetch(
+    'https://meu-portifolio-theta.vercel.app/api/project'
+  );
+  const data = await vercel.json();
+  return {
+    props: { dados: data },
+    revalidate: 60 * 60 * 24
+  };
+};
 
     
 

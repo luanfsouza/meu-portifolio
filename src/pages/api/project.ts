@@ -6,14 +6,14 @@ export default async (req, res) => {
 //  imgUrl = '/img1.jpg';
 
 
-  const proojects = [
-    {title: 'projeto01', type: 'website', imgUrl: '/img1.jpg'},
-    {title: 'projeto02', type: 'website', imgUrl: '/hq1.jpg'},
-    {title: 'projeto03', type: 'website', imgUrl: '/img1.jpg'},
-    {title: 'projeto04', type: 'website', imgUrl: '/img1.jpg'},
-  ]
+  const projects = [
+    { title: 'projeto01', type: 'website', imgUrl: '/projetct01.png' },
+    { title: 'projeto02', type: 'website', imgUrl: '/hq1.jpg' },
+    { title: 'projeto03', type: 'website', imgUrl: '/img1.jpg' },
+    { title: 'projeto04', type: 'website', imgUrl: '/img1.jpg' }
+  ];
   try{
-    res.status(200).send(proojects)
+    res.status(200).send(projects)
   }
 catch(err){
     res.send(err)

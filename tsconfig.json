@@ -14,6 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Experiencias/ExperienciaItem.tsx", "src/pages/slice-simulator.jsx", "src/pages/_app.tsx", "src/pages/projetos/[slug]/index.jsx"],
   "exclude": ["node_modules"]
 }

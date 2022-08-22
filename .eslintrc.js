@@ -25,8 +25,17 @@ module.exports = {
   rules: {
     'react/jsx-props-no-spreading': 'off',
     'react/react-in-jsx-scope': 'off',
-    'prettier/prettier': 'error',
+    'prettier/prettier': 'off',
     'space-before-function-paren': 'off',
-    'react/prop-types': 'off'
-  }
+    'react/prop-types': 'off',
+    'import/prefer-default-export': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'react/self-closing-comp': 'off',
+    'react/require-default-props': 'off',
+    '@typescript-eslint/parser': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off'
+  },
+ 
 };

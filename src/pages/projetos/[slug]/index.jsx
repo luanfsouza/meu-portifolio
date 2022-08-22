@@ -33,7 +33,6 @@ export default function Projeto({ post, dados }) {
     };
     fds();
   }, []);
-  console.log(data.descricao)
   return (
     <ProjetoContainer>
       {/* <Head>
@@ -53,10 +52,8 @@ export default function Projeto({ post, dados }) {
         imgUrl={projeto.thumbnail}
       /> */}
       <BannerProjeto title={data.title} type={data.type} imgUrl={data.imgUrl} />
-      <main>
-        {data && <p>{data.type}</p>}
-
-        
+      <main> 
+        {data && <p>{data.descricao}</p>}
 
         <button type="button">
           <a href={data.site}>

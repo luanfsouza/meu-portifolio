@@ -9,31 +9,33 @@ import { ProjetoContainer } from '../../../styles/ProjetoStyles';
 import LoadingScreen from '../../../components/LoadingScreen';
 // import { setgid } from 'process';
 
-export default function Projeto({post, dados}) {
+export default function Projeto({ post, dados }) {
   const router = useRouter();
   if (router.isFallback) {
     return <LoadingScreen />;
   }
-interface BannerProjetoProps {
-  title: string;
-  type: string;
-  imgUrl: string;
-}
-  const [data, setData] = useState<BannerProjetoProps>(dados);
-  const [dataQuery, setDataQuery] = useState();
+  interface BannerProjetoProps1 {
+    title: string;
+    type: string;
+    imgUrl: string;
+    descricao: string;
+  }
+  interface BannerProjetoProps2 {
+    title: string;
+    type: string;
+    imgUrl: string;
+    descricao: string;
+  }
+  const [data, setData] = useState<BannerProjetoProps1>(dados);
+  const [dataD, setDatad] = useState<string>(data.descricao);
   useEffect(() => {
-    const fds = async ()=> {
-    
-setData(dados.filter(i => i.title === router.query.slug)[0]);
-      //   const vercel = await fetch(
-      //     'https://meu-portifolio-theta.vercel.app/api/project'
-      //   );
-      //   const data = await vercel.json();
-      //   const dataUnica = data.filter(i=>i.title === post)[0]
-    }
-  fds()
+    const fds = async () => {
+      setData(dados.filter(i => i.title === router.query.slug)[0]);
+      setDatad(dataD);
+    };
+    fds();
   }, []);
-console.log(data)
+  console.log(dados)
   return (
     <ProjetoContainer>
       {/* <Head>
@@ -55,7 +57,7 @@ console.log(data)
       <BannerProjeto title={data.title} type={data.type} imgUrl={data.imgUrl} />
       <main>
         {data && <p>{data.type}</p>}
-        <p>ddw{}</p>
+        <p>descricao aqui</p>
 
         <button type="button">
           <a href="https://github.com/luanfsouza" target="_blanck">
@@ -69,16 +71,15 @@ console.log(data)
 
 // Generates `/posts/1` and `/posts/2`
 export async function getStaticPaths() {
-
   return {
     paths: [
       { params: { slug: 'projeto01' } },
-     { params: { slug: 'projeto02' } },
-     { params: { slug: 'projeto03' } },
-     { params: { slug: 'projeto05' } },
+      { params: { slug: 'projeto02' } },
+      { params: { slug: 'projeto03' } },
+      { params: { slug: 'projeto05' } }
     ],
-    fallback: true, // can also be true or 'blocking'
-  }
+    fallback: true // can also be true or 'blocking'
+  };
 }
 
 // `getStaticPaths` requires using `getStaticProps`
@@ -87,9 +88,9 @@ export async function getStaticProps(context) {
     'https://meu-portifolio-theta.vercel.app/api/project'
   );
   const data = await vercel.json();
-  const dataUnica = data
+  const dataUnica = data;
   return {
-    props: {post: {}, dados: dataUnica },
+    props: { post: {}, dados: dataUnica },
     revalidate: 60 * 60 * 24
   };
 }

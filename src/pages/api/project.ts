@@ -7,9 +7,30 @@ export default async (req, res) => {
 
 
   const projects = [
-    { title: 'projeto01', type: 'website', imgUrl: '/projetct01.png' },
-    { title: 'projeto02', type: 'website', imgUrl: '/projetct02.png' },
-    { title: 'projeto03', type: 'website', imgUrl: '/projetct03.png' }
+    {
+      title: 'projeto-01',
+      type: 'website',
+      imgUrl: '/project-01.png',
+      descricao: {
+        desc: 'meu site mais bonito'
+      }
+    },
+    {
+      title: 'projeto-02',
+      type: 'website',
+      imgUrl: '/project-02.png',
+      descricao: {
+        desc: 'meu site mais bonito'
+      }
+    },
+    {
+      title: 'projeto-03',
+      type: 'website',
+      imgUrl: '/project03.png',
+      descricao: {
+        desc: 'meu site mais bonito'
+      }
+    }
   ];
   try{
     res.status(200).send(projects)

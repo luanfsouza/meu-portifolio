@@ -10,7 +10,7 @@ export default async (req, res) => {
     {
       title: 'projeto-01',
       type: 'website',
-      imgUrl: '/project-01.png',
+      imgUrl: '/project01.png',
       descricao: {
         desc: 'meu site mais bonito'
       }
@@ -18,7 +18,7 @@ export default async (req, res) => {
     {
       title: 'projeto-02',
       type: 'website',
-      imgUrl: '/project-02.png',
+      imgUrl: '/project02.png',
       descricao: {
         desc: 'meu site mais bonito'
       }

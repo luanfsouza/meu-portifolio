@@ -11,8 +11,9 @@ export const Container = styled.section`
     justify-content: center;
     gap: 8rem;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1200px) {
       gap: 5rem;
+      flex-wrap: wrap;
     }
 
     @media (max-width: 700px) {

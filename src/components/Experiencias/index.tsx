@@ -12,26 +12,16 @@ function Experiencias() {
       </Head>
       <SectionTitle title="01 Ano" description="de experiência" />
 
-      <section className='revelacao'>
-        <ExperienciaItem
-          year="2018"
-          title="Dev Front-end"
-          description="Lorem ipsum dolor sdsadas it amet, consectetur adipiscing elit. Aliquam"
-        />
-        <ExperienciaItem 
-          year="2021"
-          title="Dev Front-sasend"
-          description="Lorem ipsum sss dolor sit amet, consectetur adipiscing elit. Aliquam"
-        />
-        <ExperienciaItem
-          year="2021"
-          title="Dev Frondsa dsa t-end"
-          description="Lorem idsadas psum dolor sit amet, consectetur adipiscing elit. Aliquam"
-        />
+      <section className="revelacao">
         <ExperienciaItem
           year="2020"
-          title="Dev Front-end"
-          description="Lorem ipsumdsada  dolor sit amet, consectetur adipiscing elit. Aliquam"
+          title="Curso tercnico"
+          description="Completei o curso técnico de ti da microlins, onde tive meu primeiro contado com computadores e sistemas no geral."
+        />
+        <ExperienciaItem
+          year="2022"
+          title="Densenvolvedor-web"
+          description="Me introduzir no mundo da programação de forma autodidata."
         />
       </section>
     </Container>

@@ -14,28 +14,26 @@ export default function Projeto({ post, dados }) {
   if (router.isFallback) {
     return <LoadingScreen />;
   }
-  interface BannerProjetoProps1 {
-    title: string;
-    type: string;
-    imgUrl: string;
-    descricao: string;
-  }
-  interface BannerProjetoProps2 {
-    title: string;
-    type: string;
-    imgUrl: string;
-    descricao: string;
-  }
-  const [data, setData] = useState<BannerProjetoProps1>(dados);
-  const [dataD, setDatad] = useState<string>(data.descricao);
+  // interface BannerProjetoProps1 {
+  //   title: string;
+  //   type: string;
+  //   imgUrl: string;
+  //   descricao: string;
+  // }
+  // interface BannerProjetoProps2 {
+  //   descricao: string
+  //   desc: string
+  // }
+  const [data, setData] = useState(dados);
+  const [dataD, setDatad] = useState(data.descricao);
   useEffect(() => {
     const fds = async () => {
       setData(dados.filter(i => i.title === router.query.slug)[0]);
-      setDatad(dataD);
+      setDatad(dados.filter(i => i.title === router.query.slug)[0].descricao);
     };
     fds();
   }, []);
-  console.log(dados)
+  console.log(data.descricao)
   return (
     <ProjetoContainer>
       {/* <Head>
@@ -57,10 +55,11 @@ export default function Projeto({ post, dados }) {
       <BannerProjeto title={data.title} type={data.type} imgUrl={data.imgUrl} />
       <main>
         {data && <p>{data.type}</p>}
-        <p>descricao aqui</p>
+
+        
 
         <button type="button">
-          <a href="https://github.com/luanfsouza" target="_blanck">
+          <a href={data.site}>
             Ver projeto online
           </a>
         </button>
@@ -73,10 +72,9 @@ export default function Projeto({ post, dados }) {
 export async function getStaticPaths() {
   return {
     paths: [
-      { params: { slug: 'projeto01' } },
-      { params: { slug: 'projeto02' } },
-      { params: { slug: 'projeto03' } },
-      { params: { slug: 'projeto05' } }
+      { params: { slug: 'projeto-01' } },
+      { params: { slug: 'projeto-02' } },
+      { params: { slug: 'projeto-03' } },
     ],
     fallback: true // can also be true or 'blocking'
   };

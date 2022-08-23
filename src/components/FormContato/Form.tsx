@@ -50,7 +50,7 @@ export default function Form() {
   // }
 
   return (
-    <FormContainer >
+    <FormContainer data-aos='fade-up'>
       <Input
         placeholder="Nome"
         value={nome}

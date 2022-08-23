@@ -35,16 +35,17 @@ export default function Projeto({ post, dados }) {
   }, []);
   return (
     <ProjetoContainer>
-      {/* <Head>
-        <title>{projeto.title} | Meu portfólio</title>
-        <meta name="description" content={projeto.description} />
-        <meta property="og:image" content={projeto.thumbnail} />
-        <meta property="og:image:secure_url" content={projeto.thumbnail} />
-        <meta name="twitter:image" content={projeto.thumbnail} />
-        <meta name="twitter:image:src" content={projeto.thumbnail} />
-        <meta property="og:description" content={projeto.description} />
+      <Head>
+        <title>{data.title} | Meu portfólio</title>
+        <meta name="description" content={data.descricao} />
+        <meta property="og:image" content={data.imgUrl} />
+        <meta property="og:image:secure_url" content={data.imgUrl} />
+        <meta name="twitter:image" content={data.imgUrl} />
+        <meta name="twitter:image:src" content={data.imgUrl} />
+        <meta property="og:description" content={data.descricao} />
       </Head>
 
+      {/* 
       <Header />
       <BannerProjeto
         title={projeto.title}
@@ -52,13 +53,11 @@ export default function Projeto({ post, dados }) {
         imgUrl={projeto.thumbnail}
       /> */}
       <BannerProjeto title={data.title} type={data.type} imgUrl={data.imgUrl} />
-      <main> 
+      <main>
         {data && <p>{data.descricao}</p>}
 
         <button type="button">
-          <a href={data.site}>
-            Ver projeto online
-          </a>
+          <a href={data.site}>Ver projeto online</a>
         </button>
       </main>
     </ProjetoContainer>

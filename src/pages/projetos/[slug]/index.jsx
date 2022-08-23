@@ -37,7 +37,7 @@ export default function Projeto({ post, dados, dataAtual }) {
     <ProjetoContainer>
       <Head>
         <title>{data.title} | Meu portfólio</title>
-        <meta name="description" content="descricao projeto" />
+        <meta property="og:description" content={data.descricao} />
         <meta property="og:image" content={data.imgUrl} />
         <meta property="og:image:secure_url" content={data.imgUrl} />
         <meta name="twitter:image" content={data.imgUrl} />

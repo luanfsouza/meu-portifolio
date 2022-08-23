@@ -10,66 +10,44 @@ export default function Form() {
   const [mensagem, setMensagem] = useState('');
 
   const [loading, setLoading] = useState(false);
-
-  // async function handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   if (!nome || !email || !mensagem) {
-  //     toast('Preencha todos os campos para enviar sua mensagem!', {
-  //       style: {
-  //         background: theme.error,
-  //         color: '#fff'
-  //       }
-  //     });
-  //     return;
-  //   }
-
-  //   try {
-  //     setLoading(true);
-  //     await sendContactMail(nome, email, mensagem);
-  //     setNome('');
-  //     setEmail('');
-  //     setMensagem('');
-
-  //     toast('Mensagem enviada com sucesso!', {
-  //       style: {
-  //         background: theme.secondary,
-  //         color: '#fff'
-  //       }
-  //     });
-  //   } catch (error) {
-  //     toast('Ocorreu um erro ao tentar enviar sua mensagem. Tente novamente!', {
-  //       style: {
-  //         background: theme.error,
-  //         color: '#fff'
-  //       }
-  //     });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
-
   return (
-    <FormContainer data-aos='fade-up'>
+    <FormContainer
+      data-aos="fade-up"
+      action="https://formsubmit.co/luanferreira7777@gmail.com"
+      method="POST"
+    >
       <Input
         placeholder="Nome"
         value={nome}
+        name="name"
+        required
         onChange={({ target }) => setNome(target.value)}
       />
       <Input
         placeholder="E-mail"
         type="email"
         value={email}
+        name="email"
+        required
         onChange={({ target }) => setEmail(target.value)}
       />
       <TextArea
         placeholder="Mensagem"
         value={mensagem}
+        required
         onChange={({ target }) => setMensagem(target.value)}
       />
       <button type="submit" disabled={loading}>
         ENVIAR
       </button>
+      <Input type="hidden" value="Novo Contato" name="_subject" />
+      <Input type="text" style={{ display: 'none' }} name="_honey" />
+      <Input type="hidden" name="_captcha" value="false" />
+      <Input
+        type="hidden"
+        name="_next"
+        value="https://meu-portifolio-theta.vercel.app/"
+      />
     </FormContainer>
   );
 }

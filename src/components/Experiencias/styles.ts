@@ -19,6 +19,7 @@ export const Container = styled.section`
       flex-direction: column;
       margin-top: 5rem;
       gap: 2rem;
+      max-width: 100%;
     }
   }
 `;

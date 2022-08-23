@@ -37,12 +37,17 @@ export default function Projeto({ post, dados, dataAtual }) {
     <ProjetoContainer>
       <Head>
         <title>{data.title} | Meu portfólio</title>
-        <meta name="description" content='descricao projeto' />
-        <meta property="og:image" content={dados.filter(i => i.title === router.query.slug)[0].imgUrl} />
-        <meta property="og:image:secure_url" content={dados.filter(i => i.title === router.query.slug)[0].imgUrl} />
-        <meta name="twitter:image" content={dados.filter(i => i.title === router.query.slug)[0].imgUrl} />
-        <meta name="twitter:image:src" content={dados.filter(i => i.title === router.query.slug)[0].imgUrl} />
-        <meta property="og:description" content='descricao projeto' />
+        <meta name="description" content="descricao projeto" />
+        <meta property="og:image" content={data.imgUrl} />
+        <meta property="og:image:secure_url" content={data.imgUrl} />
+        <meta name="twitter:image" content={data.imgUrl} />
+        <meta name="twitter:image:src" content={data.imgUrl} />
+        <meta property="og:description" content={data.descricao} />
+        <meta property="og:image" content={data.imgUrl} />
+        <meta property="og:image:secure_url" content={data.imgUrl} />
+        <meta property="og:image:type" content={data.imgUrl} />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="300" />
       </Head>
 
       {/* 

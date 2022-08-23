@@ -9,7 +9,7 @@ import { ProjetoContainer } from '../../../styles/ProjetoStyles';
 import LoadingScreen from '../../../components/LoadingScreen';
 // import { setgid } from 'process';
 
-export default function Projeto({ post, dados }) {
+export default function Projeto({ post, dados, dataAtual }) {
   const router = useRouter();
   if (router.isFallback) {
     return <LoadingScreen />;
@@ -37,12 +37,12 @@ export default function Projeto({ post, dados }) {
     <ProjetoContainer>
       <Head>
         <title>{data.title} | Meu portfólio</title>
-        <meta name="description" content={data.descricao} />
+        <meta name="description" content='descricao projeto' />
         <meta property="og:image" content={data.imgUrl} />
         <meta property="og:image:secure_url" content={data.imgUrl} />
         <meta name="twitter:image" content={data.imgUrl} />
         <meta name="twitter:image:src" content={data.imgUrl} />
-        <meta property="og:description" content={data.descricao} />
+        <meta property="og:description" content='descricao projeto' />
       </Head>
 
       {/* 
@@ -84,7 +84,7 @@ export async function getStaticProps(context) {
   const data = await vercel.json();
   const dataUnica = data;
   return {
-    props: { post: {}, dados: dataUnica },
+    props: { post: {}, dados: dataUnica},
     revalidate: 60 * 60 * 24
   };
 }
